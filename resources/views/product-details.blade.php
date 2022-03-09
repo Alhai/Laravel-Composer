@@ -21,7 +21,6 @@
         </style>
     </head>
     <body >
-  <h1> Fiche du Produit 1 </h1> 
-
+     Fiche du Produit , {{ $id }}
     </body>
 </html>
