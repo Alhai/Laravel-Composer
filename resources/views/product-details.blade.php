@@ -21,7 +21,7 @@
         </style>
     </head>
     <body >
-  <h1> Homepage </h1> 
+  <h1> Fiche du Produit 1 </h1> 
 
     </body>
 </html>
