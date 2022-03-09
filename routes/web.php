@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return ('Home');
-});
-Route::get('/edit', function () {
-    return ('welcome');
-});
-Route::get('/product', function () {
-    return ('product');
-});
-Route::get('/product/{id}', function () {
-    return ('hello' . request('id'));
-});
-Route::get('/cart', function () {
-    return ('cart');
-});
+
+Route::get('/',[HomeController::class,'Home']);
+Route::get('/product',[ProductController::class,'Product']);
+Route::get('/Cart',[CartController::class,'Cart']);
+// Route::get('/product/id', function (Request $id){
+
+// });
