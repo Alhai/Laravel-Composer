@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +19,8 @@ use App\Http\Controllers\CartController;
 
 Route::get('/',[HomeController::class,'Home']);
 Route::get('/product',[ProductController::class,'Product']);
+Route::get('/product',[ProductController::class,'productBdd']);
+Route::get('/product/{id}',[ProductController::class,'productBdd']);
 Route::get('/cart',[CartController::class,'cart']);
 Route::get('/product/{id}', [ProductController::class,'productId']);
+
