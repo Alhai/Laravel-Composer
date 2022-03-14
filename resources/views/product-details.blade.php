@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -24,9 +25,7 @@
      <h1>Fiche du Produit </h1>
      {{-- , {{ $id }} --}}
      {{-- @dump($products) --}}
-        @foreach ($products as $product )
-            
-        
+        @foreach ($products as $product )   
      <div class="card" style="width: 18rem;">
         <img src="{{$product->picture_url}}" alt="">
         <div class="card-body">

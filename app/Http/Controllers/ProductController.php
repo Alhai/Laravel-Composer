@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    
     public function productbdd()
     {
         $products = DB::select('select * from products');
-
-        return view('product-list',['products'=>$products]);
+        
+        
+        return view('product-list',['a'=>$products]);
 
     }
     // public function Product(){
@@ -20,5 +22,6 @@ class ProductController extends Controller
     public function productId($id){
         $products = DB::select('select * from products where id = :id', array('id' => $id));
         return view('product-details',['id' => $id],['products'=>$products]);
+ 
     }
 }
