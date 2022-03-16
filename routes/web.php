@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PostController;
 use app\Models\Product;
 
 /*
@@ -20,12 +21,21 @@ use app\Models\Product;
 
 Route::get('/',[HomeController::class,'Home']);
 Route::get('/product',[ProductController::class,'productModel']);
-    Route::get('/product',[ProductController::class,'productBdd']);
-    
+    Route::get('/product',[ProductController::class,'productBdd'])
+    ->name('product');
     Route::get('/product/{id}',[ProductController::class,'productBdd']);
-    Route::get('/product/{id}', [ProductController::class,'productId']);
+
+    Route::get('/product/{id}', [ProductController::class,'productId'])
+    -> name('product_id');
+
 Route::get('/cart',[CartController::class,'cart']);
 
 Route::get('/listname',[ProductController::class,'productListName']);
 Route::get('/listprice',[ProductController::class,'productListPrice']);
 Route::get('/oneproduct',[ProductController::class,'oneProduct']);
+
+
+// Route::get('/backOffice',[PostController::class,'index'])
+// -> name('back_office');  
+// Route::get('/product/{id}', [ProductController::class,'productId'])
+//     -> name('back_office');
