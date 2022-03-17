@@ -35,7 +35,5 @@ Route::get('/listprice',[ProductController::class,'productListPrice']);
 Route::get('/oneproduct',[ProductController::class,'oneProduct']);
 
 
-// Route::get('/backOffice',[PostController::class,'index'])
-// -> name('back_office');  
-// Route::get('/product/{id}', [ProductController::class,'productId'])
-//     -> name('back_office');
+Route::resource('backoffice/product',PostController::class);
+

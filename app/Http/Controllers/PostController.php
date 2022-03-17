@@ -15,8 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-    //     $products = Product::all();
-    //     return view('products/backoffice/crudProduct',['a'=>$products]);
+        $products = Product::all();
+        return view('products/backoffice/crudProduct',['a'=>$products]);
+
+
     }
 
     /**
@@ -26,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -37,7 +39,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request,[
+        //     'Nom'=> 'bail|required|string|max:255',
+        //     'Prix'=> 'bail|required|string|max:255',
+
+        // ]);
+        // Post::create([
+        //     'Nom' => $request->name,
+        //     'Prix'=> $request->price,
+        // ]);
     }
 
     /**
@@ -48,7 +58,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+    //    
     }
 
     /**
@@ -59,7 +69,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('products.backoffice.updateCrud');
     }
 
     /**
@@ -71,7 +81,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        // $products = Product::find('products');
+        // $products->name = $request->name ;
+        // $products->save();
+        // return view('products.backoffice.updateCrud',['a'=>$products]);
+
+        
     }
 
     /**
