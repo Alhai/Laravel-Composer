@@ -7,6 +7,7 @@
         <th scope="col">Id</th>
         <th scope="col">Nom</th>
         <th scope="col">Prix</th>
+        <th scope="col">Ajouter</th>
         <th scope="col">Acheter</th>
         <th scope="col">Modifier</th>
         <th scope="col">Supprimer</th>
@@ -21,12 +22,13 @@
         <th scope="row">{{$product->id}}</th>
         <td>{{$product->name}}</td>
         <td>{{$product->price}} €</td>
+        
         <td><a href="{{route('product_id',['id'=>$product->id])}}" class="btn btn-primary">acheter</a></td>
-        <td><a href="{{route('product.edit', $product->id)}}" class="btn btn-success">modifier</a></td>
+        <td><a href="{{route('product.edit', $product)}}" class="btn btn-success">modifier</a></td>
         <td><a href="{{route('product_id',['id'=>$product->id])}}" class="btn btn-danger">supprimer</a></td>
       </tr>
       @endforeach
     </tbody>
   </table>
-
+<a href="{{route('product.create',$product->id)}}" class="btn btn-primary">Ajouter</a>
 @endsection
