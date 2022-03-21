@@ -15,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('products/backoffice/crudProduct',['a'=>$products]);
+        $product = Product::all();
+        return view('products/backoffice/crudProduct',['a'=>$product]);
 
 
     }
@@ -27,7 +27,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {    
+      
         return view('products.backoffice.createform');
     }
 
@@ -37,36 +38,23 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request,)
     {   
-        $this->validate($request, [
-            'categori' => 'bail|required|string|max:255',
-            "picture" => 'bail|required|image|max:1024',
-            "content" => 'bail|required',
-            'title' => 'bail|required|string|max:255',
-            "picture" => 'bail|required|image|max:1024',
-            "content" => 'bail|required',
-            'title' => 'bail|required|string|max:255',
-            "picture" => 'bail|required|image|max:1024',
-            "content" => 'bail|required',
+        
 
+        $product = Product::create([
+       "categories_id "=> $request->input('categories_id'),
+        "name" => $request->input('name'),
+        "price" => $request->input('price'),
+       "discount" => $request->input('discount'),
+       "weight" => $request->input('weight'),
+        "description" => $request->input('description'),
+        "available" => $request->input('available'),
+        "stock" => $request->input('stock')
+    ]);
+        
 
-        ]);
-
-        $chemin_image = $request->picture->store('product');
-
-        $product = Product::create($id);
-        $product->categories_id = $request->input('categories_id');
-        $product->name = $request->input('name');
-        $product->picture_url = $chemin_image;
-        $product->price = $request->input('price');
-        $product->discount = $request->input('discount');
-        $product->weight = $request->input('weight');
-        $product->description = $request->input('description');
-        $product->available = $request->input('available');
-        $product->stock = $request->input('stock');
-
-        return view('products.backoffice.createform',['product'=>$product]);
+        return view('products.backoffice.crudProduct',['product'=>$product]);
 
     }
 
@@ -108,13 +96,6 @@ class PostController extends Controller
         $product->price = $request->input('price');
         $product->save();
         return redirect()->route('product.index');
-
-        // $products->update([
-        //     'name' => $request->input('name'),
-        //     'price'=> $request->input('price'),
-        // ]);
-        
-        // return redirect()->route('product.index');
         
     }
 
@@ -124,10 +105,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        $product = Product::find($id);
-        $id->delete();
-        return redirect(route('product.index'));
-    }
+        $product->delete();
+        return redirect()->route('product.index');
+}
 }
