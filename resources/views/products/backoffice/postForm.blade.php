@@ -17,14 +17,16 @@
 <form action="{{route('product.update',$product->id)}}" method="post" class="form-example">
    @method('PUT')
       <!-- Le token CSRF -->
-      @csrf 
-      <label for="name">Modifier Nom {{$product->name}}</label>
-      <input type="text" name="name" id="text" placeholder="Nom" >
+      @csrf
+      <H1>Modification</H1> 
+      <label for="name">Nom {{$product->name}}</label>
+      <input type="text" name="name" id="text" placeholder="Nom" value="{{$product->name}}">
     </div>
     <div class="form-example">
-      <label for="email">Modifier Prix {{$product->price}} €</label>
-      <input type="text" name="price" id="text" placeholder="Prix" >
+      <label for="email">Prix {{$product->price}} €</label>
+      <input type="text" name="price" id="text" placeholder="Prix" value="{{$product->price}}" >
     </div>
+    
     <div class="form-example">
       <input type="submit" value="Valider">
     </div>
