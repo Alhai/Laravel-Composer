@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
     public function productId($id){
         $products = DB::select('select * from products where id = :id', array('id' => $id));
         return view('products/product-details',['id' => $id],['products'=>$products]);
+        
  
      }
 
@@ -36,5 +37,7 @@ use Illuminate\Support\Facades\DB;
         $products = Product::orderBy('name')->first();
         return view('products/list/namePrice',['product'=>$products]);
     }
+
+    
 }
 

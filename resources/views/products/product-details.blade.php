@@ -11,8 +11,8 @@
           <h5 class="card-title">{{$product->name}}</h5>
           <p class="card-text">{{$product->description}}</p>
           <p>{{$product->price}}€</p>
-          <input type="number" id="tentacles" name="tentacles">
-          <a href="shoppingCart" class="btn btn-primary">Acheter</a>
+          <input type="number" id="tentacles" name="tentacles" >
+          <a href="shoppingCart" class="btn btn-primary ">Acheter</a>
         </div>
       </div>
       @endforeach 

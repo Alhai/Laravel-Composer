@@ -40,7 +40,17 @@ class PostController extends Controller
      */
     public function store(Request $request,)
     {   
-        
+        $request->validate([
+            'categories_id' => 'required|unique:posts',
+            'name' => 'required|unique:posts', 
+            'price' => 'required|unique:posts', 
+            'discount' => 'required|unique:posts', 
+            'weight' => 'required|unique:posts', 
+            'description' => 'required|unique:posts', 
+            'available' => 'required|unique:posts', 
+            'stock' => 'required|unique:posts', 
+            
+        ]);
 
         $product = Product::create([
        "categories_id "=> $request->input('categories_id'),
@@ -93,7 +103,7 @@ class PostController extends Controller
     {
         
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:posts',
             'price' => 'required' ]);
      
        

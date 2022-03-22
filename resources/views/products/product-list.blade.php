@@ -9,7 +9,6 @@
             <div class="card-body">
               <p class="card-text">{{$product->name}}</p> 
               <p class="card-text">{{$product->price}} € </p>
-              
               <a href="{{route('product_id',$product->id)}}" class="btn btn-primary">acheter</a>
             </div>
           </div>
