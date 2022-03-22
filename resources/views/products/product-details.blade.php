@@ -2,6 +2,7 @@
 @section('title','product-details')
     @section('content')
      <h1>Fiche du Produit </h1>
+
   
         @foreach ($products as $product )   
      <div class="card" style="width: 18rem;">
@@ -11,7 +12,7 @@
           <p class="card-text">{{$product->description}}</p>
           <p>{{$product->price}}€</p>
           <input type="number" id="tentacles" name="tentacles">
-          <a href="#" class="btn btn-primary">Acheter</a>
+          <a href="shoppingCart" class="btn btn-primary">Acheter</a>
         </div>
       </div>
       @endforeach 

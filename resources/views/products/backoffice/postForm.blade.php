@@ -2,6 +2,11 @@
 @section('title', 'postForm')
 @section('content')
 
+ @if ($errors->any())
+  @foreach ($errors->all() as $error )
+    <div class="text-red-500"> {{$error}}</div>
+ @endforeach
+ @endif
 
 <div class="card" style="width: 18rem;">
    <img src="{{$product->picture_url}}" alt="">
@@ -12,6 +17,7 @@
    </div>
  </div> 
 
+   
 
 
 <form action="{{route('product.update',$product->id)}}" method="post" class="form-example">
@@ -20,11 +26,11 @@
       @csrf
       <H1>Modification</H1> 
       <label for="name">Nom {{$product->name}}</label>
-      <input type="text" name="name" id="text" placeholder="Nom" value="{{$product->name}}">
+      <input type="text" name="name" id="text" placeholder="Nom du produit" >
     </div>
     <div class="form-example">
       <label for="email">Prix {{$product->price}} €</label>
-      <input type="text" name="price" id="text" placeholder="Prix" value="{{$product->price}}" >
+      <input type="text" name="price" id="text" placeholder="Prix" value="{{$product->price}} €" >
     </div>
     
     <div class="form-example">

@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $product = Product::all();
-        return view('products/backoffice/crudProduct',['a'=>$product]);
+        return view('products/backoffice/CrudProduct',['a'=>$product]);
 
 
     }
@@ -54,7 +54,7 @@ class PostController extends Controller
     ]);
         
 
-        return view('products.backoffice.crudProduct',['product'=>$product]);
+        return view('products.backoffice.CrudProduct',['product'=>$product]);
 
     }
 
@@ -67,7 +67,7 @@ class PostController extends Controller
     public function show(Product $products)
     {
         $products = Product::all();
-    return view('products.backoffice.crudProduct',$products);
+    return view('products.backoffice.CrudProduct',$products);
     }
 
     /**
@@ -91,12 +91,20 @@ class PostController extends Controller
      */
     public function update(Request $request,$id)
     {
+        
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required' ]);
+     
+       
         $product = Product::find($id);
         $product->name = $request->input('name');
         $product->price = $request->input('price');
+        
         $product->save();
         return redirect()->route('product.index');
-        
+
+           
     }
 
     /**
@@ -111,3 +119,4 @@ class PostController extends Controller
         return redirect()->route('product.index');
 }
 }
+
