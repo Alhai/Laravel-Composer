@@ -28,7 +28,6 @@ class PostController extends Controller
      */
     public function create()
     {    
-      
         return view('products.backoffice.createform');
     }
 
@@ -41,19 +40,19 @@ class PostController extends Controller
     public function store(Request $request,)
     {   
         $request->validate([
-            'categories_id' => 'required|unique:posts',
-            'name' => 'required|unique:posts', 
-            'price' => 'required|unique:posts', 
-            'discount' => 'required|unique:posts', 
-            'weight' => 'required|unique:posts', 
-            'description' => 'required|unique:posts', 
-            'available' => 'required|unique:posts', 
-            'stock' => 'required|unique:posts', 
+            'categories_id' => 'required',
+            'name' => 'required', 
+            'price' => 'required', 
+            'discount' => 'required', 
+            'weight' => 'required', 
+            'description' => 'required', 
+            'available' => 'required', 
+            'stock' => 'required', 
             
         ]);
 
         $product = Product::create([
-       "categories_id "=> $request->input('categories_id'),
+       "categories_id"=> $request->input('categories_id'),
         "name" => $request->input('name'),
         "price" => $request->input('price'),
        "discount" => $request->input('discount'),
@@ -61,10 +60,10 @@ class PostController extends Controller
         "description" => $request->input('description'),
         "available" => $request->input('available'),
         "stock" => $request->input('stock')
-    ]);
+        ]);
         
 
-        return view('products.backoffice.CrudProduct',['product'=>$product]);
+        return redirect()->route('product.index');
 
     }
 
@@ -103,7 +102,7 @@ class PostController extends Controller
     {
         
         $request->validate([
-            'name' => 'required|unique:posts',
+            'name' => 'required',
             'price' => 'required' ]);
      
        
