@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PostController;
+use App\Models\Categories;
 use app\Models\Product;
 
 /*
@@ -36,4 +37,3 @@ Route::get('/oneproduct',[ProductController::class,'oneProduct']);
 
 
 Route::resource('backoffice/product',PostController::class);
-
